@@ -1,19 +1,21 @@
 /**
  * Webpack configuration for production
  */
-import path from 'path';
-import webpack from 'webpack';
-export default {
-  devtool: 'source-map',
+const path = require('path');
+const webpack = require('webpack');
+const MinifyPlugin = require("babel-minify-webpack-plugin");
+
+module.exports = {
+  devtool: 'none',
   entry: path.join(process.cwd(), 'src/index'),
+  mode: 'production',
   output: {
     filename: 'bundle.js',
     path: path.join(process.cwd(), 'public', 'js'),
     publicPath: '/js',
   },
   plugins: [
-    new webpack.optimize.OccurrenceOrderPlugin(true),
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(true)
   ],
   module: {
     rules: [
@@ -21,9 +23,6 @@ export default {
         test: /\.js$/,
         use: {
           loader: 'babel-loader',
-          options: {
-            plugins: ['transform-inline-environment-variables'],
-          },
         },
         exclude: /node_modules/,
       },
@@ -44,6 +43,11 @@ export default {
         use: 'file-loader',
       },
     ],
+  },
+  optimization: {
+    minimizer: [
+      new MinifyPlugin(),
+    ]
   },
   target: 'web',
 };
