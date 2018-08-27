@@ -5,9 +5,14 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
+import webpackDevServer from './webpack/dev-server';
+
 const routes = require('./routes');
 
 const app = express();
+if (process.env.NODE_ENV !== 'production') {
+  webpackDevServer(app);
+}
 const server = http.createServer(app);
 
 // view engine
@@ -24,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/', routes);
-app.use(express.static(path.join(__dirname, './public')));
+app.use(express.static(path.join(__dirname, '../public')));
 
 server.listen(3000);
 server.on('listening', () => {
