@@ -4,22 +4,33 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "babel-node server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^4.17.1"
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-hot-middleware": "^2.22.3"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
+    "css-loader": "^1.0.0",
     "express": "^4.16.3",
+    "file-loader": "^2.0.0",
     "morgan": "^1.9.0",
-    "pug": "^2.0.3"
+    "node-sass": "^4.9.3",
+    "pug": "^2.0.3",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.22.1",
+    "svg-inline-loader": "^0.8.0",
+    "webpack-dev-middleware": "^3.2.0"
   }
 }
