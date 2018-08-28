@@ -16,6 +16,7 @@ module.exports =  {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
   ],
+  watch: true,
   module: {
     rules: [
       {

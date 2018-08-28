@@ -14,7 +14,6 @@ if (process.env.NODE_ENV !== 'production') {
   webpackDevServer(app);
 }
 const server = http.createServer(app);
-
 // view engine
 app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'pug');

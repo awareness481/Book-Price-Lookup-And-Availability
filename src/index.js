@@ -6,7 +6,9 @@ if (module.hot) {
   module.hot.accept();
 }
 const MainApp = () => (
-  <h1>Hello React!</h1>
+  <form class='mainForm'>
+    <input id='searchForm' />
+  </form>
 );
 // render the app
 render(<MainApp />, document.getElementById('app'));
