@@ -17,6 +17,7 @@ module.exports =  {
     new webpack.NoEmitOnErrorsPlugin(),
   ],
   watch: true,
+  mode: "development",
   module: {
     rules: [
       {
